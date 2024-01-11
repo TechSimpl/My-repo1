@@ -20,6 +20,7 @@ pipeline {
         // COmmands related to code deployment
 		  echo " This is deploy stage"
 		  echo " This is deploy stage for envirnment : ${params.env}"
+	          echo " This is deploying the code from branch  ${BRANCH_NAME}"
 		  }
     }
    stage('test') {
