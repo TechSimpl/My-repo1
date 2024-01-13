@@ -11,6 +11,7 @@ pipeline {
 		  echo " This is build stage"
 		  echo " This is build stage for version : ${params.version} "
 		  echo " This is build number ${BUILD_NUMBER}"
+	          echo " This is build is triggered from qa-branch"
 		  
 		  }
  
