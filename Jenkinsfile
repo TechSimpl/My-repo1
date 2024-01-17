@@ -8,9 +8,8 @@ pipeline {
    stage ('Build') {
     steps {
           //commands rlated to building the code
-		  sh "mvn clean install"
-		  sh "pwd"
-		  sh "ls"
+		 //  sh "mvn clean install" 
+		 // skipping this stage as Jenkins is crashing
 		  
 		  }
  
@@ -18,9 +17,10 @@ pipeline {
    stage('deploy ') { 
     steps {
         // COmmands related to code deployment
-		  echo " This is deploy stage"
-		  echo " This is deploy stage for envirnment : ${params.env}"
-	          echo " Build url is ${JOB_DISPLAY_URL}"
+		// copy the war file to tomcat server
+	  sshagent(['root']) {
+          sh "scp -o StrictHostKeyCHecking=no /target/SimpleTomcatWebApp.war  root@43.204.22.29:/home/ec2-user/tomcat/apache-tomcat-10.1.18/webapps"
+		 }
 		  }
     }
    stage('test') {
