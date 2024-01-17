@@ -10,6 +10,7 @@ pipeline {
           //commands rlated to building the code
 		 //  sh "mvn clean install" 
 		 // skipping this stage as Jenkins is crashing
+	        echo " SInce you asked"
 		  
 		  }
  
